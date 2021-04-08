@@ -8,6 +8,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <Header />
+      hello
     </ThemeProvider>
   );
 }

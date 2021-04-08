@@ -2,7 +2,9 @@ import React from 'react'
 import {AppBar, Toolbar} from '@material-ui/core/'
 import useScrollTrigger from '@material-ui/core/useScrollTrigger';
 import { makeStyles } from '@material-ui/core/styles';
-
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
+import Button from '@material-ui/core/Button'
 
 function ElevationScroll(props) {
   const { children, window } = props;
@@ -22,12 +24,27 @@ function ElevationScroll(props) {
 
 const useStyles = makeStyles(theme=> ({
   toolbarMargin: {
-    ...theme.mixins.toolbar
+    ...theme.mixins.toolbar,
+    marginBottom: "3em"
   },
   logo: {
     textTransform: 'none',
     height: '7rem'
-  }
+  },
+  tabContainer: {
+    marginLeft: 'auto'
+  },
+  tab: {
+    ...theme.typography.tab,
+    minWidth: 10,
+    marginLeft: '25px'
+  },
+  button: {
+    ...theme.typography.estimate,
+    borderRadius: "50px",
+    margin: "0 25px 0 50px",
+    height: "45px",
+  },
 }))
 
 
@@ -37,7 +54,7 @@ export default function Header(props){
     <>
       <ElevationScroll>
         <AppBar position="fixed" >
-          <Toolbar>
+          <Toolbar disableGutters>
             <svg
                className={classes.logo}
                id="Layer_1"
@@ -86,6 +103,19 @@ export default function Header(props){
                  d="M457-17l-8.93 16-9.62 17.24-8.36 14.96L369.93 139l-.01.01L361 155"
                />
              </svg>
+             <Tabs className={classes.tabContainer}>
+               <Tab className={classes.tab} label="Home">
+               </Tab>
+               <Tab className={classes.tab} label="Services">
+               </Tab>
+               <Tab className={classes.tab} label="The Revolution">
+               </Tab>
+               <Tab className={classes.tab} label="About Us">
+               </Tab>
+               <Tab className={classes.tab} label="Contact Us">
+               </Tab>
+             </Tabs>
+             <Button className={classes.button} variant="contained" color="secondary">Free Estimate</Button>
           </Toolbar>
         </AppBar>
         </ElevationScroll>
